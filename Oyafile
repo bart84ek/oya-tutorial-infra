@@ -1,1 +1,19 @@
 Project: TutInfra
+
+Import:
+  local: './local/'
+  staging: './staging/'
+  production: './production'
+
+onPush: |
+  # ??
+  # kubeverify syntax of file
+
+onMergeToMaster: |
+  oya run local.deploy
+
+onMergeToStaging: |
+  oya run staging.deploy
+
+onMergeToProd: |
+  oya run production.deploy
