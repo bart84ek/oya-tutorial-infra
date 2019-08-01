@@ -1,14 +1,7 @@
 Project: TutInfra
 
 Changeset: |
-  echo "+staging/"
-
-onPush: |
-  oya run --changest -r deploy
+  git diff --dirstat | awk '{a="+"$2; print a}'
 
 onMergeToMaster: |
-  oya run --changest -r deploy
-  # git diff tag:last_realse
-
-onMergeToProd: |
-  oya run --changest -r deploy
+  oya run --changeset --recurse deploy
