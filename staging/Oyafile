@@ -11,5 +11,4 @@ Values:
     port: 80
 
 deploy: |
-  oya render deplyo yamlm > asdasd
-  kubectl deploy ble ble ble
+  echo "staging"

@@ -1,19 +1,14 @@
 Project: TutInfra
 
-Import:
-  local: './local/'
-  staging: './staging/'
-  production: './production'
+Changeset: |
+  echo "+staging/"
 
 onPush: |
-  # ??
-  # kubeverify syntax of file
+  oya run --changest -r deploy
 
 onMergeToMaster: |
-  oya run local.deploy
-
-onMergeToStaging: |
-  oya run staging.deploy
+  oya run --changest -r deploy
+  # git diff tag:last_realse
 
 onMergeToProd: |
-  oya run production.deploy
+  oya run --changest -r deploy

@@ -11,6 +11,8 @@ Values:
     port: 8080
 
 deploy: |
+  echo "local"
+  exit
   docker run -d \
     -e PORT=${Oya[backend.port]} \
     -p ${Oya[backend.port]}:${Oya[backend.port]} \
